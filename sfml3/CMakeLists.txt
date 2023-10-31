@@ -1,17 +1,8 @@
-cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
+add_executable(07 main.cpp)
 
-project(sfml-lab-3)
 
-set(SFML_STATIC_LIBRARIES TRUE)
+target_include_directories(07 PRIVATE ${SFML_INCLUDE_DIR})
+target_compile_features(07 PUBLIC cxx_std_17)
+target_compile_definitions(07 PRIVATE SFML_STATIC)
 
-find_package(Freetype REQUIRED)
-find_package(JPEG REQUIRED)
-find_package(SFML 2 COMPONENTS window graphics system REQUIRED)
-
-add_subdirectory(00)
-add_subdirectory(01)
-add_subdirectory(02)
-add_subdirectory(03)
-add_subdirectory(04)
-add_subdirectory(sfml3_1)
-add_subdirectory(sfml3_2)
+target_link_libraries(07 ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
